@@ -31,13 +31,14 @@
 
     // Show an alert if there is a problem getting the geolocation
     //
-    function onError() {
-        alert('onError!');
+    function onError(err) {
+        alert(['Error:',err.code,err.message]);
     }
 
     </script>
   </head>
   <body>
+    <h1>PhoneGap GPS Example</h1>
     <div id="myDiv"></div>
   </body>
 </html>
