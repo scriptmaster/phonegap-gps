@@ -16,7 +16,7 @@
     }
 
     function getLatLng() {
-      var timeout = parseInt((document.getElementById('timeout')||{}).value) || 350;
+      var timeout = parseInt((document.getElementById('timeout')||{}).value) || 3500;
       navigator.geolocation.getCurrentPosition(onSuccess, onError,
           {enableHighAccuracy: true, timeout: timeout, maximumAge: 60000 });
     }
@@ -47,7 +47,7 @@
   </head>
   <body>
     <h1>PhoneGap GPS Example</h1>
-    Timeout: <input id="timeout" value=350 /><button onclick="getLatLng()">Get Position</button>
+    Timeout: <input id="timeout" value=4000 /><button onclick="getLatLng()">Get Position</button>
     <div id="myDiv"></div>
   </body>
 </html>
