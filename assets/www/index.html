@@ -12,7 +12,8 @@
     // device APIs are available
     //
     function onDeviceReady() {
-        navigator.geolocation.getCurrentPosition(onSuccess, onError, {enableHighAccuracy: true});
+        navigator.geolocation.getCurrentPosition(onSuccess, onError,
+          {enableHighAccuracy: true, timeout: 350, maximumAge: 60000 });
     }
 
     // Display `Position` properties from the geolocation
