@@ -16,7 +16,7 @@
     }
 
     function getLatLng() {
-      var timeout = parseInt(document.getElementById('timeout')||{}.value) || 350;
+      var timeout = parseInt((document.getElementById('timeout')||{}).value) || 350;
       navigator.geolocation.getCurrentPosition(onSuccess, onError,
           {enableHighAccuracy: true, timeout: timeout, maximumAge: 60000 });
     }
