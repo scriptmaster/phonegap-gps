@@ -12,8 +12,13 @@
     // device APIs are available
     //
     function onDeviceReady() {
-        navigator.geolocation.getCurrentPosition(onSuccess, onError,
-          {enableHighAccuracy: true, timeout: 350, maximumAge: 60000 });
+        getLatLng();
+    }
+
+    function getLatLng() {
+      var timeout = parseInt(document.getElementById('timeout')||{}.value) || 350;
+      navigator.geolocation.getCurrentPosition(onSuccess, onError,
+          {enableHighAccuracy: true, timeout: timeout, maximumAge: 60000 });
     }
 
     // Display `Position` properties from the geolocation
@@ -40,6 +45,7 @@
   </head>
   <body>
     <h1>PhoneGap GPS Example</h1>
+    Timeout: <input id="timeout" value=350 />
     <div id="myDiv"></div>
   </body>
 </html>
