@@ -17,14 +17,21 @@
 
     function getLatLng() {
       var timeout = parseInt((document.getElementById('timeout')||{}).value) || 3500;
-      navigator.geolocation.getCurrentPosition(onSuccess, onError,
+      
+      window.watchPositionID = navigator.geolocation.watchPosition(onSuccess, onError,
           {enableHighAccuracy: true, timeout: timeout, maximumAge: 60000 });
+          
     }
 
     // Display `Position` properties from the geolocation
     //
     function onSuccess(position) {
         navigator.splashscreen.hide();
+
+        navigator.geolocation.clearWatch(window.watchPositionID);
+
+        window.savedPosition = position;
+
         var div = document.getElementById('myDiv');
 
         div.innerHTML = 'Latitude: '             + position.coords.latitude         + '<br/>' +
@@ -34,11 +41,13 @@
                         'Altitude Accuracy: '    + position.coords.altitudeAccuracy + '<br/>' +
                         'Heading: '              + position.coords.heading          + '<br/>' +
                         'Speed: '                + position.coords.speed            + '<br/>';
+
     }
 
     // Show an alert if there is a problem getting the geolocation
     //
     function onError(err) {
+        // navigator.geolocation.clearWatch(window.watchPositionID);
         navigator.splashscreen.hide();
         alert(['Error:',err.code,err.message]);
     }
