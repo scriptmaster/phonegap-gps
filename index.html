@@ -24,6 +24,7 @@
     // Display `Position` properties from the geolocation
     //
     function onSuccess(position) {
+        navigator.splashscreen.hide();
         var div = document.getElementById('myDiv');
 
         div.innerHTML = 'Latitude: '             + position.coords.latitude         + '<br/>' +
@@ -38,6 +39,7 @@
     // Show an alert if there is a problem getting the geolocation
     //
     function onError(err) {
+        navigator.splashscreen.hide();
         alert(['Error:',err.code,err.message]);
     }
 
