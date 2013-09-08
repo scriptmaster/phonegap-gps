@@ -48,7 +48,7 @@
     //
     function onError(err) {
         // navigator.geolocation.clearWatch(window.watchPositionID);
-        navigator.splashscreen.hide();
+        navigator.splashscreen.show();
         alert(['Error:',err.code,err.message]);
     }
 
@@ -56,7 +56,10 @@
   </head>
   <body>
     <h1>PhoneGap GPS Example</h1>
-    Timeout: <input id="timeout" value=4000 /><button onclick="getLatLng()">Get Position</button>
+    Timeout: <input id="timeout" value=4000 />
+    <button onclick="getLatLng()">Get Position</button>
+    <button onclick="navigator.splashscreen.show()">Show Splash</button>
+    
     <div id="myDiv"></div>
   </body>
 </html>
