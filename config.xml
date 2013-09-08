@@ -13,7 +13,7 @@
     </description>
 
     <author href="http://fb.com/netrcs" email="scriptmaster@gmail.com">
-        ScriptMaster
+        ScriptMaster Sheriff
     </author>
 
     <!--
@@ -22,6 +22,11 @@
     -->
     <feature name="http://api.phonegap.com/1.0/device" />
     <feature name="http://api.phonegap.com/1.0/geolocation"/>
+
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.SplashScreen" />
+        <param name="ios-package" value="CDVSplashScreen" />
+    </feature>
 
     <!--
         If you do not want any permissions to be added to your app, add the
